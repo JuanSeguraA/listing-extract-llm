@@ -1,0 +1,18 @@
+[project]
+name = "listing-extract-llm"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "accelerate>=1.15.0",
+    "datasets>=5.0.1",
+    "fastapi>=0.141.1",
+    "huggingface-hub>=1.32.0",
+    "peft>=0.21.0",
+    "python-dotenv>=1.2.3",
+    "scikit-learn>=1.9.1",
+    "torch>=2.14.0",
+    "transformers>=5.17.0",
+    "trl>=1.13.0",
+    "uvicorn>=0.53.0",
+]
