@@ -9,8 +9,8 @@ from peft import LoraConfig
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from trl import SFTConfig, SFTTrainer
 
-DATA_DIR = Path(__file__).resolve().parent.parent / "data"
-MODELS_DIR = Path(__file__).resolve().parent.parent / "models"
+DATA_DIR = Path("data")
+MODELS_DIR = Path("models")
 
 # Mirrors CONFIG in notebooks/main.ipynb (section 2) — keep these two in sync.
 BASE_MODEL = "Qwen/Qwen2.5-0.5B-Instruct"
