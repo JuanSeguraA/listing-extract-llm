@@ -28,6 +28,8 @@ Tested on 60 held-out listings, same set for both runs:
 | base       | 100%             | 76.7%             | 12.0%            |
 | fine-tuned | 100%             | 96.7%             | 77.4%            |
 
+![Before vs after fine-tuning results](assets/eval_results.png)
+
 `field_accuracy` is the one that matters most, it checks whether the model got the actual attribute values right, not just whether it returned valid JSON. Fine-tuning took it from about 1 in 8 correct to about 3 in 4 correct, after roughly 10 minutes of training on a free GPU.
 
 For reference, the paper behind this dataset reports GPT-3.5/GPT-4 getting 79-91% F1 on similar extraction (a different metric, so not a perfect comparison, but a useful benchmark). A 0.5B model fine-tuned on 305 examples getting into the same range is a solid result.
@@ -40,7 +42,14 @@ uv sync
 
 Then run `src/prep_data.py` to download the dataset, and open `notebooks/main.ipynb` to follow along.
 
+## Serving
+
+`src/serve.py` wraps the fine-tuned model in a FastAPI endpoint (`POST /extract`). Run it with:
+
+```bash
+uv run uvicorn src.serve:app --reload
+```
+
 ## What's not done yet
 
-- `src/serve.py`, a small API to actually serve the fine-tuned model, is a placeholder for now
 - Only tested on one category so far, widening to the other 4 is just a config change
