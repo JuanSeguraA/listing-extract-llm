@@ -6,6 +6,6 @@ venv/
 .ipynb_checkpoints/
 data/raw/
 *.ckpt
-*.safetensors
+models/checkpoints/
 wandb/
 .DS_Store
